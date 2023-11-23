@@ -16,6 +16,13 @@
  
     $(document).ready(function() { 
 
+        $('#blah')
+            .attr('src', "./default-placeholder.png")
+            .width(195)
+            .height(195);
+            $('.file-upload').hide();
+
+
              // Get the modal
      var modal = document.getElementById("myModal");
 
