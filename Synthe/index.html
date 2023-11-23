@@ -9,67 +9,74 @@
     <link class="jsbin" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"rel="stylesheet" type="text/css" />
     <link href="style.css" rel="stylesheet">
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
 
 
 </head>
 
-
 <body>
-    <div id="test" class="d-flex flex-column justify-content-between">
-
+    <div id="page" class="d-flex flex-column justify-content-between">
         <nav>
-       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
-    Launch demo modal
-  </button>
-            <button type="button" id="btn-image" class="btn btn-primary ">Générer</button>
-            <button type="button" id="btn-reset" class="btn btn-primary ">Reset</button>
 
-            <input type="color" id="text-1-color" name="head" value="black" />
+            <button type="button" id="btn-image" class="btn btn-primary ">Générer</button> <!-- Génère l'image -->
+            <button type="button" id="btn-reset" class="btn btn-primary ">Reset</button>  <!-- Reset la config -->
+
+            <input type="color" id="text-1-color" name="head" value="black"  onchange="changeTextColor(this,'1')"/>
             <label for="head">Couleur du texte 1</label>
-            <input type="color" id="text-2-color" name="head" value="black" />
+            <input type="color" id="text-2-color" name="head" value="black"  onchange="changeTextColor(this,'2')"/>
             <label for="head">Couleur du texte 2</label>
 
-            <input type="color" id="fond-1-color" name="head" value="#fdfdfd" />
+            <input type="color" id="fond-1-color" name="head" value="#fdfdfd"  onchange="changeBackColor(this,'1')"/>
             <label for="head">Couleur du fond 1</label>
-            <input type="color" id="fond-2-color" name="head" value="#fdfdfd" />
+            <input type="color" id="fond-2-color" name="head" value="#fdfdfd" onchange="changeBackColor(this,'2')" />
             <label for="head">Couleur du fond 2</label>
 
             <div>
-                <label for="customRange1" class="form-label">Opacité fond 1</label>
-                <input type="range" class="form-range" id="range-opacity-background-1">
+                <label for="head">Taille police 1</label>
+                <input type="number" id="text-1-font-size" name="head" value="black" value=30  onchange="changeFontSize(this,'1')"/>
+                <label for="head">Taille police 2</label>
+                <input type="number" id="text-2-font-size" name="head" value="black"  onchange="changeFontSize(this,'2')"/>
             </div>
 
             <div>
-                <label for="customRange2" class="form-label">Opacité fond 2</label>
-                <input type="range" class="form-range" id="range-opacity-background-2">
+                <label  class="form-label">Opacité fond 1</label>
+                <input type="range" class="form-range" id="range-opacity-background-1" onchange="changeBackOpacity(this,'1')">
             </div>
 
-
+            <div>
+                <label  class="form-label">Opacité fond 2</label>
+                <input type="range" class="form-range" id="range-opacity-background-2" onchange="changeBackOpacity(this,'2')">
+            </div>
 
         </nav>
 
         <div id="scene" class="d-flex flex-column-reverse">
 
             <div class="d-flex bloc-left">
+                <!-- LOGO -->
                 <div class="logo d-flex justify-content-center align-items-center">
                     <button type="button" class="btn btn-primary file-upload">Upload</button>
-                    <input id="file-input" type='file' class="inputFile visuallyhidden" onchange="readURL(this);"
-                        title="" />
+                    <input id="file-input" type='file' class="inputFile visuallyhidden" onchange="readURL(this);"title="" />
                     <img id="blah" src="#" alt="" />
                 </div>
                 <div style="margin-left:10px" class="d-flex flex-column justify-content-center ">
-                    <div class="text-1">
+                    <!-- TEXT 1 -->
+                    <div class="text-1-bloc">
                         <div class="input-sizer text-1-input">
-                            <input class="color-1" id="text1" type="text" onInput="this.parentNode.dataset.value = this.value"
+                            <input class="color-1" id="text-1" type="text" onInput="this.parentNode.dataset.value = this.value"
                                 size="4" placeholder="Text 1">
                         </div>
                     </div>
-
-                    <div class="text-2">
+                    <!-- TEXT 2 -->
+                    <div class="text-2-bloc">
                         <div class="input-sizer text-2-input">
-                            <input class="color-2" id="text2" type="text" onInput="this.parentNode.dataset.value = this.value"
+                            <input class="color-2" id="text-2" type="text" onInput="this.parentNode.dataset.value = this.value"
                                 size="4" placeholder="Text 2">
                         </div>
                     </div>
@@ -78,59 +85,34 @@
         </div>
     </div>
 
-
-
-
-        <!-- Modal -->  
-        <div class="modal fade" id="modal" tabindex="10" role="dialog" aria-labelledby="modal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <span id="bodymodal1"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-        <script src="./script.js"></script>
-
-</body>
-
 <script>
 
+    // - Générer
     $('.file-upload').on('click', function (e) {
         e.preventDefault();
         $('#file-input').trigger('click');
     });
 
-    $('#text-1-color').on('change', function (e) {
-        e.preventDefault();
-        $(".color-1").css({ 'color': document.getElementById('text-1-color').value });
-    });
+    // - Changer la couleur du texte
+    function changeTextColor(e,nb){
+        $(".color-"+nb).css({ 'color': document.getElementById('text-'+nb+'-color').value });
+    }
 
-    $('#text-2-color').on('change', function (e) {
-        e.preventDefault();
-        $(".color-2").css({ 'color': document.getElementById('text-2-color').value });
-    });
+    // - Changer la taille du texte
+    function changeFontSize(e,nb){
+    $(".color-"+nb).css({ 'font-size': document.getElementById('text-'+nb+'-font-size').value+"px" });
+    }
 
-    $('#fond-1-color').on('change', function (e) {
-        e.preventDefault();
-        $(".text-1-input").css({ 'background-color': document.getElementById('fond-1-color').value });
-    });
+    // - Changer la couleur du fond
+    function changeBackColor(e,nb){
+        console.log(".text-"+nb)
+        $(".text-"+nb+"-bloc").css({ 'background-color': document.getElementById('fond-'+nb+'-color').value });
+    }
 
-    $('#fond-2-color').on('change', function (e) {
-        e.preventDefault();
-        $(".text-2-input").css({ 'background-color': document.getElementById('fond-2-color').value });
-    });
-
-    $('#range-opacity-background-1').on('change', function (e) {
-        e.preventDefault();
-        let hex = document.getElementById('fond-1-color').value.replace('#', '');
-        let opacity = document.getElementById('range-opacity-background-1').value / 1;
+    // - Changer l'opacité du fond
+    function changeBackOpacity(e,nb){
+        let hex = document.getElementById('fond-'+nb+'-color').value.replace('#', '');
+        let opacity = document.getElementById('range-opacity-background-'+nb).value / 1;
 
         if (hex.length === 3) {
             hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
@@ -140,40 +122,12 @@
         const g = parseInt(hex.substring(2, 4), 16);
         const b = parseInt(hex.substring(4, 6), 16);
 
-        /* Backward compatibility for whole number based opacity values. */
         if (opacity > 1 && opacity <= 100) {
             opacity = opacity / 100;
         }
 
-        $(".text-1-input").css({ 'background-color': `rgba(${r},${g},${b},${opacity})` });
-
-    });
-
-    $('#range-opacity-background-2').on('change', function (e) {
-        e.preventDefault();
-        let hex = document.getElementById('fond-2-color').value.replace('#', '');
-        let opacity = document.getElementById('range-opacity-background-2').value / 1;
-
-        if (hex.length === 3) {
-            hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
-        }
-
-        const r = parseInt(hex.substring(0, 2), 16);
-        const g = parseInt(hex.substring(2, 4), 16);
-        const b = parseInt(hex.substring(4, 6), 16);
-
-        /* Backward compatibility for whole number based opacity values. */
-        if (opacity > 1 && opacity <= 100) {
-            opacity = opacity / 100;
-        }
-
-        $(".text-2-input").css({ 'background-color': `rgba(${r},${g},${b},${opacity})` });
-
-    });
-
-
-
-
+        $(".text-"+nb+"-input").css({ 'background-color': `rgba(${r},${g},${b},${opacity})` });
+    }
 
 
     $('#btn-image').on('click', function (e) {
@@ -182,7 +136,7 @@
         htmlToImage.toPng(document.getElementById('scene'), { quality: 0.99, width: 1920, height: 1080, backgroundColor: "rgba(255,255,255,0)" })
             .then(function (dataUrl) {
                 var link = document.createElement('a');
-                link.download =  document.getElementById('text1').value+".png";
+                link.download =  document.getElementById('text-1').value+".png";
                 link.href = dataUrl;
                 link.click();
             });
