@@ -25,6 +25,7 @@
         <nav>
 
             <button type="button" id="btn-image" class="btn btn-primary ">Générer</button> <!-- Génère l'image -->
+            <button type="button" id="btn-logo" class="btn btn-primary ">Logo</button> 
             <button type="button" id="btn-reset" class="btn btn-primary ">Reset</button>  <!-- Reset la config -->
 
             <input type="color" id="text-1-color" name="head" value="black"  onchange="changeTextColor(this,'1')"/>
@@ -36,6 +37,13 @@
             <label for="head">Couleur du fond 1</label>
             <input type="color" id="fond-2-color" name="head" value="#fdfdfd" onchange="changeBackColor(this,'2')" />
             <label for="head">Couleur du fond 2</label>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onchange="changeMode(this)">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Je sais plus le nom là
+                </label>
+              </div>
 
             <div>
                 <label for="head">Taille police 1</label>
@@ -65,7 +73,7 @@
                     <input id="file-input" type='file' class="inputFile visuallyhidden" onchange="readURL(this);"title="" />
                     <img id="blah" src="#" alt="" />
                 </div>
-                <div style="margin-left:10px" class="d-flex flex-column justify-content-center ">
+                <div  class="d-flex flex-column justify-content-center ">
                     <!-- TEXT 1 -->
                     <div class="text-1-bloc">
                         <div class="input-sizer text-1-input">
@@ -93,6 +101,11 @@
         $('#file-input').trigger('click');
     });
 
+    $('#btn-logo').on('click', function (e) {
+        e.preventDefault();
+        $('#file-input').trigger('click');
+    });
+
     // - Changer la couleur du texte
     function changeTextColor(e,nb){
         $(".color-"+nb).css({ 'color': document.getElementById('text-'+nb+'-color').value });
@@ -107,6 +120,11 @@
     function changeBackColor(e,nb){
         console.log(".text-"+nb)
         $(".text-"+nb+"-bloc").css({ 'background-color': document.getElementById('fond-'+nb+'-color').value });
+    }
+
+    // - mode dactylo
+    function changeMode(checkbox) {
+            $(".bloc-left").toggleClass("up");
     }
 
     // - Changer l'opacité du fond

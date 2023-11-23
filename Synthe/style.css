@@ -6,25 +6,25 @@ html{
 body{
     height: 100%;
     background-color: rgba(255,255,255,0);
-    font-size: 30px;
 }
-#test{
+#page{
     height: 100%;
     background-color: rgba(255,255,255,0);
+}
+#scene{
+  font-size: 30px;
 }
 
 nav{
     margin:10px
 }
 .bloc-left{
-    margin: 50px;
+    margin-left: 70px;
+    margin-bottom: 55px;
 }
 .logo{
-    outline: 1px solid grey;
-    outline-offset: -1px;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
+    width: 195px;
+    height: 195px;
 }
 
 button{
@@ -79,6 +79,7 @@ button{
   min-width: 1em;
   grid-area: 1/2;
   font: inherit;
+  padding: 0.25em;
   margin: 0;
   resize: none;
   background: none;
@@ -100,3 +101,8 @@ button{
 .color-2{
   padding: 10px;
 }
+
+.up{
+  margin-bottom: 200px;
+}
+
