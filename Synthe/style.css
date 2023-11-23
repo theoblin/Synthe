@@ -1,55 +1,54 @@
-
-html{
-    height: 100%;
-    background-color: rgba(255,255,255,0);
+html {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
 }
-body{
-    height: 100%;
-    background-color: rgba(255,255,255,0);
+body {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
 }
-#page{
-    height: 100%;
-    background-color: rgba(255,255,255,0);
+#page {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
 }
-#scene{
+#scene {
   font-size: 30px;
 }
 
-nav{
-    margin:10px
+nav {
+  margin: 10px;
 }
-.bloc-left{
-    margin-left: 70px;
-    margin-bottom: 55px;
+.bloc-left {
+  margin-left: 70px;
+  margin-bottom: 55px;
 }
-.logo{
-    width: 195px;
-    height: 195px;
-}
-
-button{
-   width: 100px;
-   height: 50px;
+.logo {
+  width: 195px;
+  height: 195px;
 }
 
-.file-upload{
+button {
+  width: 100px;
+  height: 50px;
+}
+
+.file-upload {
 }
 
 .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 *,
@@ -84,8 +83,8 @@ button{
   resize: none;
   background: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: none;
 }
 
@@ -95,14 +94,55 @@ button{
   white-space: pre-wrap;
 }
 
-.color-1{
+.color-1 {
   padding: 10px;
 }
-.color-2{
+.color-2 {
   padding: 10px;
 }
 
-.up{
+.up {
   margin-bottom: 200px;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cat {
+  color: #aaa;
+  font-size: 20px;
+}
